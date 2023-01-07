@@ -1,0 +1,14 @@
+def Stock(arr):
+  cost  = 0
+  maxcost = 0
+
+  mini = arr[0]
+  for i in range(len(arr)):
+    mini = min(mini, arr[i])
+    cost = arr[i] - mini
+    maxcost = max(maxcost, cost)
+  return maxcost
+
+
+
+print(Stock)
