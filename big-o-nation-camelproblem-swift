@@ -1,0 +1,24 @@
+func StringChallenge(_ str: String) -> String {
+  var result = ""
+  var arr: [String] = str.map { String($0) }
+  var cache = Set<Int>()
+  for i in 0..<str.count {
+    if cache.contains(i) { continue }
+    var tempChar = String(arr[i]).lowercased()
+    if i == 0 {
+      result.append(tempChar)
+    } else if tempChar >= "a" && tempChar <= "z" {
+      result.append(tempChar)
+    } else if i + 1 <= str.count {
+      cache.insert(i+1)
+      result.append(String(arr[i+1]).uppercased())
+    }
+  }
+  // code goes here   
+  // Note: feel free to modify the return type of this function 
+  return result
+
+}
+
+// keep this function call here   
+print(StringChallenge(readLine(stripNewline: true)));
